@@ -56,12 +56,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\PortRepository.cs" />
     <Compile Include="Classes\EmployeeRepository.cs" />
     <Compile Include="Classes\SQLConn.cs" />
-    <Compile Include="Main.cs">
+    <Compile Include="UsableForms\Ports.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="UsableForms\Ports.Designer.cs">
+      <DependentUpon>Ports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsableForms\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsableForms\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="NotUsedFoms\EditEmployee.cs">
@@ -96,7 +103,7 @@
     </Compile>
     <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Main.resx">
+    <EmbeddedResource Include="UsableForms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NotUsedFoms\EditEmployee.resx">
@@ -123,6 +130,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UsableForms\Ports.resx">
+      <DependentUpon>Ports.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

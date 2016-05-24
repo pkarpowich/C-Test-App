@@ -72,8 +72,6 @@ namespace TestForm
                 MessageBox.Show("All fields must contain a value.");
             }
             DataTable dt = employees.ReturnAllEmployees();
-
-            //Clear fields after save
             dataGridView1.DataSource = dt;
             
 

@@ -17,9 +17,15 @@ namespace TestForm
             InitializeComponent();
         }
 
-        private void buttonCustomer_Click(object sender, EventArgs e)
+        private void buttonEmployee_Click(object sender, EventArgs e)
         {
             Employee m = new Employee();
+            m.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Ports m = new Ports();
             m.Show();
         }
     }
