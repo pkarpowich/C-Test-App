@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace TestForm
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
-        public Form1()
+        public Main()
         {
             InitializeComponent();
+        }
+
+        private void buttonCustomer_Click(object sender, EventArgs e)
+        {
+            Employee m = new Employee();
+            m.Show();
         }
     }
 }

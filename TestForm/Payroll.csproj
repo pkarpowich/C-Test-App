@@ -58,48 +58,60 @@
   <ItemGroup>
     <Compile Include="Classes\EmployeeRepository.cs" />
     <Compile Include="Classes\SQLConn.cs" />
-    <Compile Include="EditEmployee.cs">
+    <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditEmployee.Designer.cs">
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NotUsedFoms\EditEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotUsedFoms\EditEmployee.Designer.cs">
       <DependentUpon>EditEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Employee.cs">
+    <Compile Include="UsableForms\Employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee.Designer.cs">
+    <Compile Include="UsableForms\Employee.Designer.cs">
       <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeMain.cs">
+    <Compile Include="UsableForms\EmployeeEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmployeeMain.Designer.cs">
+    <Compile Include="UsableForms\EmployeeEdit.Designer.cs">
+      <DependentUpon>EmployeeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NotUsedFoms\EmployeeMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotUsedFoms\EmployeeMain.Designer.cs">
       <DependentUpon>EmployeeMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="NotUsedFoms\NewEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NewEmployeeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NewEmployeeForm.Designer.cs">
+    <Compile Include="NotUsedFoms\NewEmployeeForm.Designer.cs">
       <DependentUpon>NewEmployeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="EditEmployee.resx">
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotUsedFoms\EditEmployee.resx">
       <DependentUpon>EditEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Employee.resx">
+    <EmbeddedResource Include="UsableForms\Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeMain.resx">
+    <EmbeddedResource Include="UsableForms\EmployeeEdit.resx">
+      <DependentUpon>EmployeeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotUsedFoms\EmployeeMain.resx">
       <DependentUpon>EmployeeMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewEmployeeForm.resx">
+    <EmbeddedResource Include="NotUsedFoms\NewEmployeeForm.resx">
       <DependentUpon>NewEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

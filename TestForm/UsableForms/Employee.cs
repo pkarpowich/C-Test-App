@@ -12,7 +12,11 @@ namespace TestForm
 {
     public partial class Employee : Form
     {
-        String ID = "";
+        public static String ID = "";
+        public static String firstName = "";
+        public static String lastName = "";
+        public static String email = "";
+
         EmployeeRepository employees = new EmployeeRepository();
 
         public Employee()
@@ -34,6 +38,9 @@ namespace TestForm
                 return;
 
             ID = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["PK_EmpID"].Value);
+            firstName = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["FirstName"].Value);
+            lastName = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["LastName"].Value);
+            email = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["EmailAddress"].Value);
             txtSelected.Text = ID;
         }
 
@@ -97,6 +104,26 @@ namespace TestForm
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             DataTable dt = employees.ReturnEmployeeByLastName(txtSearch.Text);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            if (ID != "")
+            {
+                EmployeeEdit m = new EmployeeEdit();
+                m.Show();
+            }
+
+            else
+            {
+                MessageBox.Show("Please select an Employee");
+            }
+        }
+
+        private void Employee_Activated(object sender, EventArgs e)
+        {
+            DataTable dt = employees.ReturnAllEmployees();
             dataGridView1.DataSource = dt;
         }
     }
