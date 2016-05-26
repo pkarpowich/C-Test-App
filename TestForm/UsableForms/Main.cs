@@ -34,5 +34,11 @@ namespace TestForm
             Tours m = new Tours();
             m.Show();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Ships m = new Ships();
+            m.Show();
+        }
     }
 }

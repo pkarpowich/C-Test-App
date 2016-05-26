@@ -56,11 +56,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\CruiselineRepository.cs" />
     <Compile Include="Classes\ShipRepository.cs" />
     <Compile Include="Classes\PortRepository.cs" />
     <Compile Include="Classes\EmployeeRepository.cs" />
     <Compile Include="Classes\SQLConn.cs" />
     <Compile Include="Classes\TourRepository.cs" />
+    <Compile Include="UsableForms\CruiseLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsableForms\CruiseLine.Designer.cs">
+      <DependentUpon>CruiseLine.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsableForms\Ships.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +130,9 @@
     </Compile>
     <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UsableForms\CruiseLine.resx">
+      <DependentUpon>CruiseLine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UsableForms\Ships.resx">
       <DependentUpon>Ships.cs</DependentUpon>
     </EmbeddedResource>

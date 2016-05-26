@@ -10,28 +10,21 @@ using System.Windows.Forms;
 
 namespace TestForm
 {
-    public partial class Ships : Form
+    public partial class CruiseLine : Form
     {
-        ShipRepository ships = new ShipRepository();
         CruiseLineRepository CL = new CruiseLineRepository();
         public static string ID = "";
-        public static string shipName = "";
-        public static string cruiseLine = "";
 
-        public Ships()
+
+        public CruiseLine()
         {
             InitializeComponent();
         }
 
         private void Ports_Load(object sender, EventArgs e)
         {
-            DataTable dt = ships.ReturnAllShips();
+            DataTable dt = CL.ReturnAllCL();
             dataGridView1.DataSource = dt;
-
-            DataTable dt2 = CL.ReturnAllCL();
-            comboBox1.DataSource = dt;
-            comboBox1.ValueMember = "PK_CruiseLine";
-            comboBox1.DisplayMember = "PK_CruiseLine";
 
         }
 
@@ -40,20 +33,19 @@ namespace TestForm
             if (e.RowIndex == -1)  // ignore header row and any column
                 return;
 
-            ID = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["PK_ShipID"].Value);
-            shipName = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["shipName"].Value);
+            ID = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["PK_CruiseLine"].Value);
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (txtShipID.Text != "" && txtShipName.Text != "")
+            if (txtPortID.Text != "")
             {
                 try
                 {
-                    ships.SaveShip(txtShipID.Text, txtShipName.Text, comboBox1.SelectedValue.ToString());
-                    MessageBox.Show("You have saved ship " + txtShipName.Text + ".");
-                    txtShipID.Text = "";
-                    txtShipName.Text = "";
+                    CL.SaveCL(txtPortID.Text);
+                    MessageBox.Show("You have saved Port " + txtPortID.Text + ".");
+                    txtPortID.Text = "";
+ 
                 }
                 catch (Exception ex)
                 {
@@ -64,7 +56,7 @@ namespace TestForm
             {
                 MessageBox.Show("All fields must contain a value.");
             }
-            DataTable dt = ships.ReturnAllShips();
+            DataTable dt = CL.ReturnAllCL();
             dataGridView1.DataSource = dt;
 
         }
@@ -73,32 +65,26 @@ namespace TestForm
         {
             // code below to create a confirmation message box yes/no
             string MessageBoxTitle = "Confirmation";
-            string MessageBoxContent = "Are you sure you want to delete ship" + shipName;
+            string MessageBoxContent = "Are you sure you want to delete port" + ID;
 
             DialogResult dialogResult = MessageBox.Show(MessageBoxContent, MessageBoxTitle, MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                ships.DeleteShip(ID);
-                MessageBox.Show("You have deleted " + shipName + ".");
+                CL.DeleteCL(ID);
+                MessageBox.Show("You have deleted employee #" + ID + ".");
             }
             else if (dialogResult == DialogResult.No)
             {
                 //do something else
             }
 
-            DataTable dt = ships.ReturnAllShips();
+            DataTable dt = CL.ReturnAllCL();
             dataGridView1.DataSource = dt;
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            CruiseLine m = new CruiseLine();
-            m.Show();
         }
     }
 }
