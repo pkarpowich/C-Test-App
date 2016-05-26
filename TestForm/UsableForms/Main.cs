@@ -28,5 +28,11 @@ namespace TestForm
             Ports m = new Ports();
             m.Show();
         }
+
+        private void buttonTours_Click(object sender, EventArgs e)
+        {
+            Tours m = new Tours();
+            m.Show();
+        }
     }
 }

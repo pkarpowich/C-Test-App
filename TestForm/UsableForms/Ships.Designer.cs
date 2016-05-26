@@ -1,6 +1,6 @@
 ﻿namespace TestForm
 {
-    partial class Ports
+    partial class Ships
     {
         /// <summary>
         /// Required designer variable.

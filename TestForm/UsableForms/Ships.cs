@@ -10,20 +10,21 @@ using System.Windows.Forms;
 
 namespace TestForm
 {
-    public partial class Ports : Form
+    public partial class Ships : Form
     {
-        PortRepository ports = new PortRepository();
+        ShipRepository ships = new ShipRepository();
         public static string ID = "";
-        public static string portName = "";
+        public static string shipName = "";
+        public static string cruiseLine = "";
 
-        public Ports()
+        public Ships()
         {
             InitializeComponent();
         }
 
         private void Ports_Load(object sender, EventArgs e)
         {
-            DataTable dt = ports.ReturnAllPorts();
+            DataTable dt = ships.ReturnAllShips();
             dataGridView1.DataSource = dt;
         }
 
@@ -32,8 +33,8 @@ namespace TestForm
             if (e.RowIndex == -1)  // ignore header row and any column
                 return;
 
-            ID = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["PK_PortID"].Value);
-            portName = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["portName"].Value);
+            ID = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["PK_ShipID"].Value);
+            shipName = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["shipName"].Value);
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -42,7 +43,7 @@ namespace TestForm
             {
                 try
                 {
-                    ports.SavePort(txtPortID.Text, txtPortName.Text);
+                    ships.SaveShip(txtPortID.Text, txtPortName.Text, ID);
                     MessageBox.Show("You have saved Port " + txtPortID.Text + ".");
                     txtPortID.Text = "";
                     txtPortName.Text = "";
@@ -56,7 +57,7 @@ namespace TestForm
             {
                 MessageBox.Show("All fields must contain a value.");
             }
-            DataTable dt = ports.ReturnAllPorts();
+            DataTable dt = ships.ReturnAllShips();
             dataGridView1.DataSource = dt;
 
         }
@@ -70,7 +71,7 @@ namespace TestForm
             DialogResult dialogResult = MessageBox.Show(MessageBoxContent, MessageBoxTitle, MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                ports.DeletePort(ID);
+                ships.DeleteShip(ID);
                 MessageBox.Show("You have deleted employee #" + ID + ".");
             }
             else if (dialogResult == DialogResult.No)
@@ -78,7 +79,7 @@ namespace TestForm
                 //do something else
             }
 
-            DataTable dt = ports.ReturnAllPorts();
+            DataTable dt = ships.ReturnAllShips();
             dataGridView1.DataSource = dt;
         }
 
