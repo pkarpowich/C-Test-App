@@ -29,7 +29,7 @@ namespace TestForm
             dataGridView1.DataSource = dt;
 
             DataTable dt2 = CL.ReturnAllCL();
-            comboBox1.DataSource = dt;
+            comboBox1.DataSource = dt2;
             comboBox1.ValueMember = "PK_CruiseLine";
             comboBox1.DisplayMember = "PK_CruiseLine";
 
@@ -99,6 +99,12 @@ namespace TestForm
         {
             CruiseLine m = new CruiseLine();
             m.Show();
+        }
+
+        private void Ships_Activated(object sender, EventArgs e)
+        {
+            DataTable dt2 = CL.ReturnAllCL();
+            comboBox1.DataSource = dt2;
         }
     }
 }

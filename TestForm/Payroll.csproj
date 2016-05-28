@@ -56,6 +56,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calls.Designer.cs">
+      <DependentUpon>Calls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\CallRepository.cs" />
     <Compile Include="Classes\CruiselineRepository.cs" />
     <Compile Include="Classes\ShipRepository.cs" />
     <Compile Include="Classes\PortRepository.cs" />
@@ -130,6 +137,9 @@
     </Compile>
     <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Calls.resx">
+      <DependentUpon>Calls.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UsableForms\CruiseLine.resx">
       <DependentUpon>CruiseLine.cs</DependentUpon>
     </EmbeddedResource>

@@ -162,7 +162,8 @@
             this.MaximumSize = new System.Drawing.Size(409, 563);
             this.MinimumSize = new System.Drawing.Size(409, 563);
             this.Name = "Ships";
-            this.Text = "1";
+            this.Text = "Ships";
+            this.Activated += new System.EventHandler(this.Ships_Activated);
             this.Load += new System.EventHandler(this.Ports_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

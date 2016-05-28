@@ -35,9 +35,9 @@
             // 
             // buttonEmployee
             // 
-            this.buttonEmployee.Location = new System.Drawing.Point(34, 40);
+            this.buttonEmployee.Location = new System.Drawing.Point(12, 12);
             this.buttonEmployee.Name = "buttonEmployee";
-            this.buttonEmployee.Size = new System.Drawing.Size(138, 113);
+            this.buttonEmployee.Size = new System.Drawing.Size(144, 68);
             this.buttonEmployee.TabIndex = 0;
             this.buttonEmployee.Text = "Employees";
             this.buttonEmployee.UseVisualStyleBackColor = true;
@@ -45,9 +45,9 @@
             // 
             // buttonTours
             // 
-            this.buttonTours.Location = new System.Drawing.Point(34, 187);
+            this.buttonTours.Location = new System.Drawing.Point(162, 12);
             this.buttonTours.Name = "buttonTours";
-            this.buttonTours.Size = new System.Drawing.Size(138, 111);
+            this.buttonTours.Size = new System.Drawing.Size(137, 68);
             this.buttonTours.TabIndex = 1;
             this.buttonTours.Text = "Tours";
             this.buttonTours.UseVisualStyleBackColor = true;
@@ -55,11 +55,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(308, 90);
+            this.button1.Location = new System.Drawing.Point(305, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(138, 68);
             this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
+            this.button1.Text = "Calls";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -67,7 +67,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 470);
+            this.ClientSize = new System.Drawing.Size(447, 86);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonTours);
             this.Controls.Add(this.buttonEmployee);

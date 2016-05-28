@@ -37,7 +37,7 @@ namespace TestForm
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Ships m = new Ships();
+            Calls m = new Calls();
             m.Show();
         }
     }

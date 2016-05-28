@@ -43,7 +43,7 @@ namespace TestForm
                 try
                 {
                     CL.SaveCL(txtPortID.Text);
-                    MessageBox.Show("You have saved Port " + txtPortID.Text + ".");
+                    MessageBox.Show("You have saved " + txtPortID.Text + ".");
                     txtPortID.Text = "";
  
                 }
@@ -65,13 +65,13 @@ namespace TestForm
         {
             // code below to create a confirmation message box yes/no
             string MessageBoxTitle = "Confirmation";
-            string MessageBoxContent = "Are you sure you want to delete port" + ID;
+            string MessageBoxContent = "Are you sure you want to delete " + ID;
 
             DialogResult dialogResult = MessageBox.Show(MessageBoxContent, MessageBoxTitle, MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 CL.DeleteCL(ID);
-                MessageBox.Show("You have deleted employee #" + ID + ".");
+                MessageBox.Show("You have deleted " + ID + ".");
             }
             else if (dialogResult == DialogResult.No)
             {
