@@ -42,8 +42,6 @@ namespace TestForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(dateTimePicker1.Value.ToString("MM/dd/yyyy"));
-
             if (
                 comboBoxShip.Text != "" &&
                 comboBoxPort.Text != "" &&

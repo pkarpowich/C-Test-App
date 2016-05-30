@@ -95,6 +95,22 @@ namespace TestForm
             }
         }
 
+        public DataTable ReturnToursByCall(string txtCall)
+        {
+
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Tour_Search_Tour_Call]", sql.SQLConnReturn()))
+            {
+                DataTable dt = new DataTable();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@CallID", SqlDbType.VarChar).Value = txtCall;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                sql.SQLClose();
+                return dt;
+            }
+        }
+
         public void UpdateTour(string txtTourID, string txtPort, string txtTourName, decimal decimalRate)
         {
             using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Tour_Update]", sql.SQLConnReturn()))

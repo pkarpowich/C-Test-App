@@ -7,25 +7,40 @@ using System.Data;
 using System.Data.SqlClient;
 
 namespace TestForm
-
 {
-    class CallRepository
+    class PayrollHeaderRepository
     {
+
         SQLConn sql = new SQLConn();
 
 
-
-        public void SaveCall(string txtShip, string txtPort, DateTime txtDate)
+        public void SavePayrollHeader(DateTime dateFrom, DateTime dateTo, string description)
         {
-            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Call_Insert]", sql.SQLConnReturn()))
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_PayrollHeader_Insert]", sql.SQLConnReturn()))
             {
                 sql.SQLOpen();
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add("@ship", SqlDbType.VarChar).Value = txtShip;
-                cmd.Parameters.Add("@date", SqlDbType.Date).Value = txtDate;
-                cmd.Parameters.Add("@FK_PortID", SqlDbType.VarChar).Value = txtPort;
+                cmd.Parameters.Add("@date_from", SqlDbType.Date).Value = dateFrom;
+                cmd.Parameters.Add("@date_to", SqlDbType.Date).Value = dateTo;
+                cmd.Parameters.Add("@description", SqlDbType.VarChar).Value = description;
+                cmd.ExecuteNonQuery();
+
+                sql.SQLClose();
+            }
+        }
+
+        public void DeletePayrollHeader(string txtID)
+        {
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_PayrollHeader_Delete]", sql.SQLConnReturn()))
+            {
+
+                sql.SQLOpen();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@ID", SqlDbType.Int).Value = txtID;
                 cmd.ExecuteNonQuery();
 
                 sql.SQLClose();
@@ -33,26 +48,10 @@ namespace TestForm
         }
 
 
-        public void DeleteCall(string txtID)
-        {
-            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Call_Delete]", sql.SQLConnReturn()))
-            {
-
-                sql.SQLOpen();
-
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = txtID;
-                cmd.ExecuteNonQuery();
-
-                sql.SQLClose();
-            }
-        }
-
-        public DataTable ReturnAllCalls()
+        public DataTable ReturnAllPayrollHeaders()
         {
 
-            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Call_Get_All]", sql.SQLConnReturn()))
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_PayrollHeader_Get_All]", sql.SQLConnReturn()))
             {
                 DataTable dt = new DataTable();
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -64,13 +63,14 @@ namespace TestForm
             }
         }
 
-        public DataTable ReturnCallsByJournal(string ID)
+        public DataTable ReturnPayrollHeaderByJournal(string ID)
         {
-            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Call_Get_By_Date_On_Journal]", sql.SQLConnReturn()))
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_PayrollHeader_Search_JournalID]", sql.SQLConnReturn()))
             {
                 DataTable dt = new DataTable();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@journalNum", SqlDbType.VarChar).Value = ID;
+                cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = ID;
+
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
 
@@ -78,5 +78,6 @@ namespace TestForm
                 return dt;
             }
         }
+
     }
 }

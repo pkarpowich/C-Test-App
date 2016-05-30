@@ -61,7 +61,7 @@
             // 
             // buttonPorts
             // 
-            this.buttonPorts.Location = new System.Drawing.Point(12, 491);
+            this.buttonPorts.Location = new System.Drawing.Point(135, 506);
             this.buttonPorts.Name = "buttonPorts";
             this.buttonPorts.Size = new System.Drawing.Size(132, 23);
             this.buttonPorts.TabIndex = 1;
@@ -181,18 +181,21 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 211);
+            this.dataGridView1.MaximumSize = new System.Drawing.Size(761, 289);
+            this.dataGridView1.MinimumSize = new System.Drawing.Size(761, 289);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(635, 274);
+            this.dataGridView1.Size = new System.Drawing.Size(761, 289);
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(411, 491);
+            this.buttonSave.Location = new System.Drawing.Point(534, 506);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 16;
@@ -202,7 +205,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(493, 491);
+            this.buttonDelete.Location = new System.Drawing.Point(616, 506);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(75, 23);
             this.buttonDelete.TabIndex = 17;
@@ -212,7 +215,7 @@
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(575, 491);
+            this.buttonUpdate.Location = new System.Drawing.Point(698, 506);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
             this.buttonUpdate.TabIndex = 18;
@@ -224,7 +227,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(659, 526);
+            this.ClientSize = new System.Drawing.Size(784, 541);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonSave);

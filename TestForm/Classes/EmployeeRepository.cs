@@ -81,6 +81,21 @@ namespace TestForm
             }
         }
 
+        public DataTable ReturnAllEmployeesConcat()
+        {
+
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Employees_Get_All_concat]", sql.SQLConnReturn()))
+            {
+                DataTable dt = new DataTable();
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                sql.SQLClose();
+                return dt;
+            }
+        }
+
         public DataTable ReturnEmployeeByLastName(string lastName)
         {
             using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Employees_Search_LastName]", sql.SQLConnReturn()))

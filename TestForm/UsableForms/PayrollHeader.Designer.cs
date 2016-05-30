@@ -1,6 +1,6 @@
 ﻿namespace TestForm
 {
-    partial class Employee
+    partial class PayrollHeader
     {
         /// <summary>
         /// Required designer variable.
@@ -29,105 +29,90 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.dateTimePickerToDate = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerFromDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.txtSearchJournalNumber = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSelected = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.buttonLines = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.dateTimePickerToDate);
+            this.panel1.Controls.Add(this.dateTimePickerFromDate);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtID);
-            this.panel1.Controls.Add(this.txtEmail);
-            this.panel1.Controls.Add(this.txtLastName);
-            this.panel1.Controls.Add(this.txtFirstName);
+            this.panel1.Controls.Add(this.txtDescription);
             this.panel1.Location = new System.Drawing.Point(12, 23);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(579, 122);
             this.panel1.TabIndex = 0;
             // 
-            // label4
+            // dateTimePickerToDate
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(37, 96);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(21, 17);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "ID";
+            this.dateTimePickerToDate.CustomFormat = "MM-dd-yyyy";
+            this.dateTimePickerToDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerToDate.Location = new System.Drawing.Point(215, 31);
+            this.dateTimePickerToDate.Name = "dateTimePickerToDate";
+            this.dateTimePickerToDate.Size = new System.Drawing.Size(126, 22);
+            this.dateTimePickerToDate.TabIndex = 8;
+            // 
+            // dateTimePickerFromDate
+            // 
+            this.dateTimePickerFromDate.CustomFormat = "MM-dd-yyyy";
+            this.dateTimePickerFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerFromDate.Location = new System.Drawing.Point(215, 3);
+            this.dateTimePickerFromDate.Name = "dateTimePickerFromDate";
+            this.dateTimePickerFromDate.Size = new System.Drawing.Size(126, 22);
+            this.dateTimePickerFromDate.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(37, 67);
+            this.label3.Location = new System.Drawing.Point(37, 59);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 17);
+            this.label3.Size = new System.Drawing.Size(79, 17);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Email Address";
+            this.label3.Text = "Description";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 38);
+            this.label2.Location = new System.Drawing.Point(37, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 17);
+            this.label2.Size = new System.Drawing.Size(59, 17);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Last Name";
+            this.label2.Text = "Date To";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(37, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 17);
+            this.label1.Size = new System.Drawing.Size(74, 17);
             this.label1.TabIndex = 4;
-            this.label1.Text = "First Name";
+            this.label1.Text = "Date From";
             // 
-            // txtID
+            // txtDescription
             // 
-            this.txtID.Location = new System.Drawing.Point(215, 92);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(132, 22);
-            this.txtID.TabIndex = 3;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(215, 63);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(132, 22);
-            this.txtEmail.TabIndex = 2;
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.Location = new System.Drawing.Point(215, 34);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(132, 22);
-            this.txtLastName.TabIndex = 1;
-            // 
-            // txtFirstName
-            // 
-            this.txtFirstName.Location = new System.Drawing.Point(215, 5);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(132, 22);
-            this.txtFirstName.TabIndex = 0;
+            this.txtDescription.Location = new System.Drawing.Point(215, 59);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(361, 22);
+            this.txtDescription.TabIndex = 2;
             // 
             // dataGridView1
             // 
@@ -141,12 +126,12 @@
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // txtSearch
+            // txtSearchJournalNumber
             // 
-            this.txtSearch.Location = new System.Drawing.Point(382, 170);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(100, 22);
-            this.txtSearch.TabIndex = 2;
+            this.txtSearchJournalNumber.Location = new System.Drawing.Point(373, 155);
+            this.txtSearchJournalNumber.Name = "txtSearchJournalNumber";
+            this.txtSearchJournalNumber.Size = new System.Drawing.Size(100, 22);
+            this.txtSearchJournalNumber.TabIndex = 2;
             // 
             // buttonSave
             // 
@@ -168,19 +153,9 @@
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Location = new System.Drawing.Point(516, 435);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
-            this.buttonUpdate.TabIndex = 5;
-            this.buttonUpdate.Text = "Update";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
-            // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(519, 169);
+            this.buttonSearch.Location = new System.Drawing.Point(479, 154);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(75, 23);
             this.buttonSearch.TabIndex = 6;
@@ -191,11 +166,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(224, 175);
+            this.label5.Location = new System.Drawing.Point(199, 158);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(135, 17);
+            this.label5.Size = new System.Drawing.Size(168, 17);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Search (Last Name)";
+            this.label5.Text = "Search (Journal Number)";
             // 
             // txtSelected
             // 
@@ -213,24 +188,34 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Selected Record";
             // 
-            // Employee
+            // buttonLines
+            // 
+            this.buttonLines.Location = new System.Drawing.Point(352, 404);
+            this.buttonLines.Name = "buttonLines";
+            this.buttonLines.Size = new System.Drawing.Size(75, 23);
+            this.buttonLines.TabIndex = 10;
+            this.buttonLines.Text = "Lines";
+            this.buttonLines.UseVisualStyleBackColor = true;
+            this.buttonLines.Click += new System.EventHandler(this.buttonLines_Click);
+            // 
+            // PayrollHeader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 485);
+            this.Controls.Add(this.buttonLines);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtSelected);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.buttonSearch);
-            this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.txtSearchJournalNumber);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.MaximumSize = new System.Drawing.Size(642, 530);
             this.MinimumSize = new System.Drawing.Size(642, 530);
-            this.Name = "Employee";
+            this.Name = "PayrollHeader";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee";
             this.Activated += new System.EventHandler(this.Employee_Activated);
@@ -247,21 +232,19 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtLastName;
-        private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.TextBox txtSearchJournalNumber;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSelected;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dateTimePickerToDate;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFromDate;
+        private System.Windows.Forms.Button buttonLines;
     }
 }

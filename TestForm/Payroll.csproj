@@ -62,6 +62,8 @@
     <Compile Include="LogOn.Designer.cs">
       <DependentUpon>LogOn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\PayrollHeaderRepository.cs" />
+    <Compile Include="PayrollLineRepository.cs" />
     <Compile Include="UsableForms\Calls.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +83,18 @@
     </Compile>
     <Compile Include="UsableForms\CruiseLine.Designer.cs">
       <DependentUpon>CruiseLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsableForms\PayrollHeader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsableForms\PayrollHeader.Designer.cs">
+      <DependentUpon>PayrollHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsableForms\PayrollLines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsableForms\PayrollLines.Designer.cs">
+      <DependentUpon>PayrollLines.cs</DependentUpon>
     </Compile>
     <Compile Include="UsableForms\Ships.cs">
       <SubType>Form</SubType>
@@ -152,6 +166,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UsableForms\CruiseLine.resx">
       <DependentUpon>CruiseLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsableForms\PayrollHeader.resx">
+      <DependentUpon>PayrollHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsableForms\PayrollLines.resx">
+      <DependentUpon>PayrollLines.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsableForms\Ships.resx">
       <DependentUpon>Ships.cs</DependentUpon>
