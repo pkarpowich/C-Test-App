@@ -117,6 +117,7 @@ namespace TestForm
         {
             Ships m = new Ships();
             m.Show();
+
         }
 
         private void Calls_Activated(object sender, EventArgs e)

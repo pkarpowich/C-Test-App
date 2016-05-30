@@ -31,6 +31,7 @@
             this.buttonEmployee = new System.Windows.Forms.Button();
             this.buttonTours = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonEmployee
@@ -63,16 +64,27 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 86);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(430, 141);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Payroll";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 86);
+            this.ClientSize = new System.Drawing.Size(447, 242);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonTours);
             this.Controls.Add(this.buttonEmployee);
             this.Name = "Main";
             this.Text = "Main";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
 
         }
@@ -82,5 +94,6 @@
         private System.Windows.Forms.Button buttonEmployee;
         private System.Windows.Forms.Button buttonTours;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

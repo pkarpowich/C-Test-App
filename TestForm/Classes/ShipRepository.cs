@@ -15,47 +15,53 @@ namespace TestForm
 
         public void SaveShip(string txtShipID, string txtShipName, string txtCrsuiseLine)
         {
-            SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Ship_Insert]", sql.SQLConnReturn());
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Ship_Insert]", sql.SQLConnReturn()))
+            {
 
-            sql.SQLOpen();
+                sql.SQLOpen();
 
-            cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = txtShipID;
-            cmd.Parameters.Add("@ShipName", SqlDbType.VarChar).Value = txtShipName;
-            cmd.Parameters.Add("@CruiseLine", SqlDbType.VarChar).Value = txtCrsuiseLine;
-            cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = txtShipID;
+                cmd.Parameters.Add("@ShipName", SqlDbType.VarChar).Value = txtShipName;
+                cmd.Parameters.Add("@CruiseLine", SqlDbType.VarChar).Value = txtCrsuiseLine;
+                cmd.ExecuteNonQuery();
 
-            sql.SQLClose();
+                sql.SQLClose();
+            }
         }
 
 
        public void DeleteShip(string txtShipID)
         {
-            SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Ship_Delete]", sql.SQLConnReturn());
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Ship_Delete]", sql.SQLConnReturn()))
+            {
 
-            sql.SQLOpen();
+                sql.SQLOpen();
 
-            cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = txtShipID;
-            cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = txtShipID;
+                cmd.ExecuteNonQuery();
 
-            sql.SQLClose();
+                sql.SQLClose();
+            }
         }
 
        
         public DataTable ReturnAllShips()
         {
 
-            SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Ship_Get_All]", sql.SQLConnReturn());
-            DataTable dt = new DataTable();
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Ship_Get_All]", sql.SQLConnReturn()))
+            {
+                DataTable dt = new DataTable();
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
 
-            sql.SQLClose();
-            return dt;
+                sql.SQLClose();
+                return dt;
+            }
         }
 
     }

@@ -33,60 +33,68 @@ namespace TestForm
 
        public void DeleteEmployee(string txtEmpID)
         {
-            SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Employees_Delete]", sql.SQLConnReturn());
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Employees_Delete]", sql.SQLConnReturn()))
+            {
 
-            sql.SQLOpen();
+                sql.SQLOpen();
 
-            cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = txtEmpID;
-            cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = txtEmpID;
+                cmd.ExecuteNonQuery();
 
-            sql.SQLClose();
+                sql.SQLClose();
+            }
         }
 
         public void UpdateEmployee(string txtFirstName, string txtLastName, string txtEmail, string txtEmpID)
         {
-            SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Employees_Update]", sql.SQLConnReturn());
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Employees_Update]", sql.SQLConnReturn()))
+            {
 
-            sql.SQLOpen();
+                sql.SQLOpen();
 
-            cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@FirstName", SqlDbType.VarChar).Value = txtFirstName;
-            cmd.Parameters.Add("@lastName", SqlDbType.VarChar).Value = txtLastName;
-            cmd.Parameters.Add("@emailAddress", SqlDbType.VarChar).Value = txtEmail;
-            cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = txtEmpID;
-            cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@FirstName", SqlDbType.VarChar).Value = txtFirstName;
+                cmd.Parameters.Add("@lastName", SqlDbType.VarChar).Value = txtLastName;
+                cmd.Parameters.Add("@emailAddress", SqlDbType.VarChar).Value = txtEmail;
+                cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = txtEmpID;
+                cmd.ExecuteNonQuery();
 
-            sql.SQLClose();
+                sql.SQLClose();
+            }
         }
 
         public DataTable ReturnAllEmployees()
         {
 
-            SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Employees_Get_All]", sql.SQLConnReturn());
-            DataTable dt = new DataTable();
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Employees_Get_All]", sql.SQLConnReturn()))
+            {
+                DataTable dt = new DataTable();
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
 
-            sql.SQLClose();
-            return dt;
+                sql.SQLClose();
+                return dt;
+            }
         }
 
         public DataTable ReturnEmployeeByLastName(string lastName)
         {
-            SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Employees_Search_LastName]", sql.SQLConnReturn());
-            DataTable dt = new DataTable();
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@LastName", SqlDbType.VarChar).Value = lastName;
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Employees_Search_LastName]", sql.SQLConnReturn()))
+            {
+                DataTable dt = new DataTable();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@LastName", SqlDbType.VarChar).Value = lastName;
 
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
 
-            sql.SQLClose();
-            return dt;
+                sql.SQLClose();
+                return dt;
+            }
         }
     }
 }

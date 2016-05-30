@@ -12,6 +12,7 @@ namespace TestForm
 {
     public partial class Main : Form
     {
+         
         public Main()
         {
             InitializeComponent();
@@ -39,6 +40,13 @@ namespace TestForm
         {
             Calls m = new Calls();
             m.Show();
+
+
+
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
         }
     }
 }

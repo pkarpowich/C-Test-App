@@ -15,45 +15,50 @@ namespace TestForm
 
         public void SaveCL(string txtShipID)
         {
-            SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_CL_Insert]", sql.SQLConnReturn());
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_CL_Insert]", sql.SQLConnReturn()))
+            {
+                sql.SQLOpen();
 
-            sql.SQLOpen();
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = txtShipID;
+                cmd.ExecuteNonQuery();
 
-            cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = txtShipID;
-            cmd.ExecuteNonQuery();
-
-            sql.SQLClose();
+                sql.SQLClose();
+            }
         }
 
 
        public void DeleteCL(string txtShipID)
         {
-            SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_CL_Delete]", sql.SQLConnReturn());
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_CL_Delete]", sql.SQLConnReturn()))
+            {
 
-            sql.SQLOpen();
+                sql.SQLOpen();
 
-            cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = txtShipID;
-            cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = txtShipID;
+                cmd.ExecuteNonQuery();
 
-            sql.SQLClose();
+                sql.SQLClose();
+            }
         }
 
        
         public DataTable ReturnAllCL()
         {
 
-            SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_CL_Get_All]", sql.SQLConnReturn());
-            DataTable dt = new DataTable();
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_CL_Get_All]", sql.SQLConnReturn()))
+            {
+                DataTable dt = new DataTable();
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
 
-            sql.SQLClose();
-            return dt;
+                sql.SQLClose();
+                return dt;
+            }
         }
 
     }

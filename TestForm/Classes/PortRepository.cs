@@ -15,46 +15,52 @@ namespace TestForm
 
         public void SavePort(string txtPortID, string txtPortName)
         {
-            SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Port_Insert]", sql.SQLConnReturn());
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Port_Insert]", sql.SQLConnReturn()))
+            {
 
-            sql.SQLOpen();
+                sql.SQLOpen();
 
-            cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@PortID", SqlDbType.VarChar).Value = txtPortID;
-            cmd.Parameters.Add("@PortName", SqlDbType.VarChar).Value = txtPortName;
-            cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@PortID", SqlDbType.VarChar).Value = txtPortID;
+                cmd.Parameters.Add("@PortName", SqlDbType.VarChar).Value = txtPortName;
+                cmd.ExecuteNonQuery();
 
-            sql.SQLClose();
+                sql.SQLClose();
+            }
         }
 
 
        public void DeletePort(string txtPortID)
         {
-            SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Port_Delete]", sql.SQLConnReturn());
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Port_Delete]", sql.SQLConnReturn()))
+            {
 
-            sql.SQLOpen();
+                sql.SQLOpen();
 
-            cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@portID", SqlDbType.VarChar).Value = txtPortID;
-            cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@portID", SqlDbType.VarChar).Value = txtPortID;
+                cmd.ExecuteNonQuery();
 
-            sql.SQLClose();
+                sql.SQLClose();
+            }
         }
 
        
         public DataTable ReturnAllPorts()
         {
 
-            SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Port_Get_All]", sql.SQLConnReturn());
-            DataTable dt = new DataTable();
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Port_Get_All]", sql.SQLConnReturn()))
+            {
+                DataTable dt = new DataTable();
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
 
-            sql.SQLClose();
-            return dt;
+                sql.SQLClose();
+                return dt;
+            }
         }
 
     }

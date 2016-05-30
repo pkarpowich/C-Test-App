@@ -17,46 +17,51 @@ namespace TestForm
 
         public void SaveCall(string txtShip, string txtPort, DateTime txtDate)
         {
-            SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Call_Insert]", sql.SQLConnReturn());
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Call_Insert]", sql.SQLConnReturn()))
+            {
+                sql.SQLOpen();
 
-            sql.SQLOpen();
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@ship", SqlDbType.VarChar).Value = txtShip;
+                cmd.Parameters.Add("@date", SqlDbType.Date).Value = txtDate;
+                cmd.Parameters.Add("@FK_PortID", SqlDbType.VarChar).Value = txtPort;
+                cmd.ExecuteNonQuery();
 
-            cmd.Parameters.Add("@ship", SqlDbType.VarChar).Value = txtShip;
-            cmd.Parameters.Add("@date", SqlDbType.Date).Value = txtDate;
-            cmd.Parameters.Add("@FK_PortID", SqlDbType.VarChar).Value = txtPort;
-            cmd.ExecuteNonQuery();
-
-            sql.SQLClose();
+                sql.SQLClose();
+            }
         }
 
 
         public void DeleteCall(string txtID)
         {
-            SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Call_Delete]", sql.SQLConnReturn());
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Call_Delete]", sql.SQLConnReturn()))
+            {
 
-            sql.SQLOpen();
+                sql.SQLOpen();
 
-            cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = txtID;
-            cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = txtID;
+                cmd.ExecuteNonQuery();
 
-            sql.SQLClose();
+                sql.SQLClose();
+            }
         }
 
         public DataTable ReturnAllCalls()
         {
 
-            SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Call_Get_All]", sql.SQLConnReturn());
-            DataTable dt = new DataTable();
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Call_Get_All]", sql.SQLConnReturn()))
+            {
+                DataTable dt = new DataTable();
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
 
-            sql.SQLClose();
-            return dt;
+                sql.SQLClose();
+                return dt;
+            }
         }
     }
 }
