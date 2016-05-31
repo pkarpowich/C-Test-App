@@ -98,7 +98,7 @@ namespace TestForm
         private void button1_Click(object sender, EventArgs e)
         {
             CruiseLine m = new CruiseLine();
-            m.Show();
+            m.ShowDialog();
         }
 
         private void Ships_Activated(object sender, EventArgs e)

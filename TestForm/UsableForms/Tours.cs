@@ -48,7 +48,7 @@ namespace TestForm
         private void buttonPorts_Click(object sender, EventArgs e)
         {
             Ports m = new Ports();
-            m.Show();
+            m.ShowDialog();
         }
 
         private void Tours_Activated(object sender, EventArgs e)

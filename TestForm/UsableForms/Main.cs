@@ -21,25 +21,25 @@ namespace TestForm
         private void buttonEmployee_Click(object sender, EventArgs e)
         {
             Employee m = new Employee();
-            m.Show();
+            m.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Ports m = new Ports();
-            m.Show();
+            m.ShowDialog();
         }
 
         private void buttonTours_Click(object sender, EventArgs e)
         {
             Tours m = new Tours();
-            m.Show();
+            m.ShowDialog();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
             Calls m = new Calls();
-            m.Show();
+            m.ShowDialog();
 
 
 
@@ -52,7 +52,7 @@ namespace TestForm
         private void button2_Click(object sender, EventArgs e)
         {
             PayrollHeader m = new PayrollHeader();
-            m.Show();
+            m.ShowDialog();
         }
     }
 }

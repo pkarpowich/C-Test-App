@@ -17,6 +17,7 @@ namespace TestForm
         PayrollHeaderRepository payrollHeader = new PayrollHeaderRepository();
 
         public static string ID = "";
+        public static int paid = 0;
 
 
         public PayrollHeader()
@@ -38,6 +39,7 @@ namespace TestForm
                 return;
 
             ID = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["PK_ParollHeader"].Value);
+            paid = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["isPayed"].Value);
             txtSelected.Text = Convert.ToString(ID);
 
         }
@@ -134,7 +136,7 @@ namespace TestForm
         private void buttonLines_Click(object sender, EventArgs e)
         {
             PayrollLines m = new PayrollLines();
-            m.Show();
+            m.ShowDialog();
         }
     }
 }

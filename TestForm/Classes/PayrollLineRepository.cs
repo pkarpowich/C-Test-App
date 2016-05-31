@@ -33,6 +33,24 @@ namespace TestForm
         }
 
 
+        public void SavePayrollLineAdj(string intHeader, string txtCallID, string txtEmployeeID, decimal amount)
+        {
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_PayrollLine_Insert_Adjustment]", sql.SQLConnReturn()))
+            {
+                sql.SQLOpen();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@HeaderID", SqlDbType.VarChar).Value = intHeader;
+                cmd.Parameters.Add("@callId", SqlDbType.VarChar).Value = txtCallID;
+                cmd.Parameters.Add("@employeeID", SqlDbType.VarChar).Value = txtEmployeeID;
+                cmd.Parameters.Add("@amount", SqlDbType.Decimal).Value = amount;
+                cmd.ExecuteNonQuery();
+
+                sql.SQLClose();
+            }
+        }
+
         public DataTable ReturnAllLinesByJournal(string intHeader)
         {
 
@@ -49,5 +67,20 @@ namespace TestForm
             }
         }
 
+        public void DeletePayrollLine(string txtID)
+        {
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_PayrollLine_Delete]", sql.SQLConnReturn()))
+            {
+
+                sql.SQLOpen();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@ID", SqlDbType.Int).Value = txtID;
+                cmd.ExecuteNonQuery();
+
+                sql.SQLClose();
+            }
+        }
     }
 }

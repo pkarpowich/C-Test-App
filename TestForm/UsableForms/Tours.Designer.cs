@@ -61,7 +61,7 @@
             // 
             // buttonPorts
             // 
-            this.buttonPorts.Location = new System.Drawing.Point(135, 506);
+            this.buttonPorts.Location = new System.Drawing.Point(11, 506);
             this.buttonPorts.Name = "buttonPorts";
             this.buttonPorts.Size = new System.Drawing.Size(132, 23);
             this.buttonPorts.TabIndex = 1;

@@ -108,13 +108,13 @@ namespace TestForm
         private void button3_Click(object sender, EventArgs e)
         {
             Ports m = new Ports();
-            m.Show();
+            m.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             Ships m = new Ships();
-            m.Show();
+            m.ShowDialog();
 
         }
 

@@ -110,7 +110,7 @@ namespace TestForm
             if (ID != "")
             {
                 EmployeeEdit m = new EmployeeEdit();
-                m.Show();
+                m.ShowDialog();
             }
 
             else

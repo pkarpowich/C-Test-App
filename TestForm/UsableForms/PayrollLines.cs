@@ -19,6 +19,7 @@ namespace TestForm
         PayrollLineRepository payrollLines = new PayrollLineRepository();
 
         public static string ID;
+        public static string lineID;
 
         public PayrollLines()
         {
@@ -41,6 +42,14 @@ namespace TestForm
 
             DataTable dt3 = payrollLines.ReturnAllLinesByJournal(ID);
             dataGridView1.DataSource = dt3;
+
+            if(PayrollHeader.paid ==1)
+            {
+                buttonSave.Enabled = false;
+                buttonDelete.Enabled = false;
+                buttonAdjustment.Enabled = false;
+            }
+
         }
 
 
@@ -61,8 +70,7 @@ namespace TestForm
 
                 try
                 {
-
-                    payrollLines.SavePayrollLine(ID, comboBoxCall.SelectedValue.ToString(), comboBoxEmployee.SelectedValue.ToString(), comboBoxTour.SelectedValue.ToString());
+                   payrollLines.SavePayrollLine(ID, comboBoxCall.SelectedValue.ToString(), comboBoxEmployee.SelectedValue.ToString(), comboBoxTour.SelectedValue.ToString());
                 }
                 catch (Exception ex)
                 {
@@ -78,6 +86,49 @@ namespace TestForm
             DataTable dt3 = payrollLines.ReturnAllLinesByJournal(ID);
             dataGridView1.DataSource = dt3;
 
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+
+            // code below to create a confirmation message box yes/no
+            string MessageBoxTitle = "Confirmation";
+            string MessageBoxContent = "Are you sure you want to delete Payroll Journal #" + lineID;
+
+            DialogResult dialogResult = MessageBox.Show(MessageBoxContent, MessageBoxTitle, MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                payrollLines.DeletePayrollLine(lineID);
+                MessageBox.Show("You have deleted Payroll Journal #" + lineID + ".");
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+
+            DataTable dt3 = payrollLines.ReturnAllLinesByJournal(ID);
+            dataGridView1.DataSource = dt3;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex == -1)  // ignore header row and any column
+                return;
+
+            lineID = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells["PK_ParollLine"].Value);
+        }
+
+        private void buttonAdjustment_Click(object sender, EventArgs e)
+        {
+            Payroll_Adjustment m = new Payroll_Adjustment();
+            m.ShowDialog();
+        }
+
+        private void PayrollLines_Activated(object sender, EventArgs e)
+        {
+            DataTable dt3 = payrollLines.ReturnAllLinesByJournal(ID);
+            dataGridView1.DataSource = dt3;
         }
     }
 

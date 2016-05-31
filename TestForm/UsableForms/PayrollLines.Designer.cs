@@ -36,6 +36,8 @@
             this.comboBoxEmployee = new System.Windows.Forms.ComboBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonAdjustment = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,7 +95,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(706, 553);
+            this.buttonSave.Location = new System.Drawing.Point(625, 553);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 6;
@@ -111,12 +113,35 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(769, 414);
             this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Location = new System.Drawing.Point(706, 553);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelete.TabIndex = 8;
+            this.buttonDelete.Text = "Delete";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // buttonAdjustment
+            // 
+            this.buttonAdjustment.Location = new System.Drawing.Point(13, 553);
+            this.buttonAdjustment.Name = "buttonAdjustment";
+            this.buttonAdjustment.Size = new System.Drawing.Size(108, 23);
+            this.buttonAdjustment.TabIndex = 9;
+            this.buttonAdjustment.Text = "Adjustment";
+            this.buttonAdjustment.UseVisualStyleBackColor = true;
+            this.buttonAdjustment.Click += new System.EventHandler(this.buttonAdjustment_Click);
             // 
             // PayrollLines
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(793, 588);
+            this.Controls.Add(this.buttonAdjustment);
+            this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.comboBoxEmployee);
@@ -127,6 +152,7 @@
             this.Controls.Add(this.label1);
             this.Name = "PayrollLines";
             this.Text = "PayrollLines";
+            this.Activated += new System.EventHandler(this.PayrollLines_Activated);
             this.Load += new System.EventHandler(this.PayrollLines_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -144,5 +170,7 @@
         private System.Windows.Forms.ComboBox comboBoxEmployee;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonAdjustment;
     }
 }

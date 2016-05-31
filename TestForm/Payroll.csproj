@@ -63,7 +63,13 @@
       <DependentUpon>LogOn.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\PayrollHeaderRepository.cs" />
-    <Compile Include="PayrollLineRepository.cs" />
+    <Compile Include="Classes\PayrollLineRepository.cs" />
+    <Compile Include="UsableForms\Payroll_Adjustment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsableForms\Payroll_Adjustment.Designer.cs">
+      <DependentUpon>Payroll_Adjustment.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsableForms\Calls.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="LogOn.resx">
       <DependentUpon>LogOn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsableForms\Payroll_Adjustment.resx">
+      <DependentUpon>Payroll_Adjustment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsableForms\Calls.resx">
       <DependentUpon>Calls.cs</DependentUpon>
