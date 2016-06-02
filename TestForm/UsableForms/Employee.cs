@@ -28,6 +28,11 @@ namespace TestForm
         {
             DataTable dt = employees.ReturnAllEmployees();
             dataGridView1.DataSource = dt;
+
+            DataTable dt2 = employees.ReturnAllEmployeeTypes();
+            comboBoxEmployeeType.DataSource = dt2;
+            comboBoxEmployeeType.ValueMember = "type";
+            comboBoxEmployeeType.DisplayMember = "type";
         }
 
 
@@ -52,7 +57,7 @@ namespace TestForm
                 try
                 {
                     EmployeeRepository saveEmployee = new EmployeeRepository();
-                    saveEmployee.SaveEmployee(txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtID.Text);
+                    saveEmployee.SaveEmployee(txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtID.Text, comboBoxEmployeeType.SelectedValue.ToString());
                     MessageBox.Show("You have saved employee #" + txtID.Text + ".");
                     //clear text boxes after sucessufll save.
                     txtFirstName.Text = "";

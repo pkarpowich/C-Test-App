@@ -13,7 +13,7 @@ namespace TestForm
 
         SQLConn sql = new SQLConn();
 
-        public void SaveEmployee(string txtFirstName, string txtLastName, string txtEmail, string txtEmpID)
+        public void SaveEmployee(string txtFirstName, string txtLastName, string txtEmail, string txtEmpID, string txtEmpType)
         {
             SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Employees_Insert]", sql.SQLConnReturn());
 
@@ -25,6 +25,7 @@ namespace TestForm
             cmd.Parameters.Add("@lastName", SqlDbType.VarChar).Value = txtLastName;
             cmd.Parameters.Add("@emailAddress", SqlDbType.VarChar).Value = txtEmail;
             cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = txtEmpID;
+            cmd.Parameters.Add("@type", SqlDbType.VarChar).Value =  txtEmpType;
             cmd.ExecuteNonQuery();
 
             sql.SQLClose();
@@ -104,6 +105,21 @@ namespace TestForm
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@LastName", SqlDbType.VarChar).Value = lastName;
 
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                sql.SQLClose();
+                return dt;
+            }
+        }
+
+        public DataTable ReturnAllEmployeeTypes()
+        {
+
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_EmployeesType_Get_All]", sql.SQLConnReturn()))
+            {
+                DataTable dt = new DataTable();
+                cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
 

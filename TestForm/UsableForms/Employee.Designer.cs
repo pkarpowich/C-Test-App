@@ -46,12 +46,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtSelected = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBoxEmployeeType = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.comboBoxEmployeeType);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -62,7 +66,7 @@
             this.panel1.Controls.Add(this.txtFirstName);
             this.panel1.Location = new System.Drawing.Point(12, 23);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(579, 122);
+            this.panel1.Size = new System.Drawing.Size(579, 149);
             this.panel1.TabIndex = 0;
             // 
             // label4
@@ -213,6 +217,23 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Selected Record";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(37, 123);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(106, 17);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Employee Type";
+            // 
+            // comboBoxEmployeeType
+            // 
+            this.comboBoxEmployeeType.FormattingEnabled = true;
+            this.comboBoxEmployeeType.Location = new System.Drawing.Point(215, 123);
+            this.comboBoxEmployeeType.Name = "comboBoxEmployeeType";
+            this.comboBoxEmployeeType.Size = new System.Drawing.Size(132, 24);
+            this.comboBoxEmployeeType.TabIndex = 9;
+            // 
             // Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -263,5 +284,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSelected;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox comboBoxEmployeeType;
+        private System.Windows.Forms.Label label7;
     }
 }

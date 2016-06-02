@@ -52,28 +52,29 @@ namespace TestForm
             string txtLastName = textBox2.Text;
             string txtEmpID = textBox3.Text;
             string txtEmail = textBox4.Text;
-
-            if (txtEmail != "" && txtEmpID != null && txtFirstName != null && txtLastName != null)
-            {
- 
-                try
-                {
-                    EmployeeRepository saveEmployee = new EmployeeRepository();
-                    saveEmployee.SaveEmployee(txtFirstName, txtLastName, txtEmail, txtEmpID);
-                    MessageBox.Show("You have saved employee #" + txtEmpID + ".");
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-
-            else
-            {
-                MessageBox.Show("All fields must contain a value.");
-            }
         }
+
+        //    if (txtEmail != "" && txtEmpID != null && txtFirstName != null && txtLastName != null)
+        //    {
+ 
+        //    //    try
+        //    //    {
+        //    //        EmployeeRepository saveEmployee = new EmployeeRepository();
+        //    //        saveEmployee.SaveEmployee(txtFirstName, txtLastName, txtEmail, txtEmpID);
+        //    //        MessageBox.Show("You have saved employee #" + txtEmpID + ".");
+        //    //        this.Close();
+        //    //    }
+        //    //    catch (Exception ex)
+        //    //    {
+        //    //        MessageBox.Show(ex.Message);
+        //    //    }
+        //    //}
+
+        //    //else
+        //    //{
+        //    //    MessageBox.Show("All fields must contain a value.");
+        //    //}
+        //}
 
         private void label1_Click(object sender, EventArgs e)
         {
