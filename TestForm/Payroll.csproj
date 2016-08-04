@@ -56,7 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileWriter.cs" />
+    <Compile Include="Classes\FileWriter.cs" />
     <Compile Include="LogOn.cs">
       <SubType>Form</SubType>
     </Compile>

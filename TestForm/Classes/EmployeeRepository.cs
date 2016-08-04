@@ -72,6 +72,8 @@ namespace TestForm
 
             using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_Employees_Get_All]", sql.SQLConnReturn()))
             {
+                sql.SQLOpen();
+
                 DataTable dt = new DataTable();
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);

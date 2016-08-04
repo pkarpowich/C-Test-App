@@ -44,6 +44,7 @@
             this.txtSelected = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.buttonLines = new System.Windows.Forms.Button();
+            this.buttonGeneratePayroll = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -78,16 +79,7 @@
             this.dateTimePickerFromDate.Name = "dateTimePickerFromDate";
             this.dateTimePickerFromDate.Size = new System.Drawing.Size(126, 22);
             this.dateTimePickerFromDate.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(37, 59);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 17);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Description";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+ 
             // 
             // label2
             // 
@@ -135,7 +127,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(352, 435);
+            this.buttonSave.Location = new System.Drawing.Point(317, 435);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 3;
@@ -145,7 +137,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(434, 435);
+            this.buttonDelete.Location = new System.Drawing.Point(398, 435);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(75, 23);
             this.buttonDelete.TabIndex = 4;
@@ -190,7 +182,7 @@
             // 
             // buttonLines
             // 
-            this.buttonLines.Location = new System.Drawing.Point(352, 404);
+            this.buttonLines.Location = new System.Drawing.Point(317, 406);
             this.buttonLines.Name = "buttonLines";
             this.buttonLines.Size = new System.Drawing.Size(75, 23);
             this.buttonLines.TabIndex = 10;
@@ -198,11 +190,22 @@
             this.buttonLines.UseVisualStyleBackColor = true;
             this.buttonLines.Click += new System.EventHandler(this.buttonLines_Click);
             // 
+            // buttonGeneratePayroll
+            // 
+            this.buttonGeneratePayroll.Location = new System.Drawing.Point(479, 407);
+            this.buttonGeneratePayroll.Name = "buttonGeneratePayroll";
+            this.buttonGeneratePayroll.Size = new System.Drawing.Size(109, 51);
+            this.buttonGeneratePayroll.TabIndex = 11;
+            this.buttonGeneratePayroll.Text = "Generate Payroll";
+            this.buttonGeneratePayroll.UseVisualStyleBackColor = true;
+            this.buttonGeneratePayroll.Click += new System.EventHandler(this.buttonGeneratePayroll_Click);
+            // 
             // PayrollHeader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 485);
+            this.Controls.Add(this.buttonGeneratePayroll);
             this.Controls.Add(this.buttonLines);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtSelected);
@@ -218,7 +221,6 @@
             this.Name = "PayrollHeader";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee";
-            this.Activated += new System.EventHandler(this.Employee_Activated);
             this.Load += new System.EventHandler(this.Employee_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -246,5 +248,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerToDate;
         private System.Windows.Forms.DateTimePicker dateTimePickerFromDate;
         private System.Windows.Forms.Button buttonLines;
+        private System.Windows.Forms.Button buttonGeneratePayroll;
     }
 }

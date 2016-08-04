@@ -27,7 +27,9 @@ namespace TestForm
         private void Payroll_Adjustment_Load(object sender, EventArgs e)
         {
             ID = PayrollLines.ID;
-            DataTable dt = calls.ReturnCallsByJournal(ID);
+            
+            DataTable dt = calls.ReturnAllCalls();
+            //DataTable dt = calls.ReturnCallsByJournal(ID);
             comboBoxCall.DataSource = dt;
             comboBoxCall.ValueMember = "concatinatedView";
             comboBoxCall.DisplayMember = "concatinatedView";
@@ -84,6 +86,11 @@ namespace TestForm
             }
 
             this.Close();
+        }
+
+        private void comboBoxEmployee_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

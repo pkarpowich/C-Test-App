@@ -53,6 +53,7 @@
             this.comboBoxEmployee.Name = "comboBoxEmployee";
             this.comboBoxEmployee.Size = new System.Drawing.Size(299, 24);
             this.comboBoxEmployee.TabIndex = 1;
+            this.comboBoxEmployee.SelectedIndexChanged += new System.EventHandler(this.comboBoxEmployee_SelectedIndexChanged);
             // 
             // txtAmt
             // 

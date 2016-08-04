@@ -79,5 +79,21 @@ namespace TestForm
             }
         }
 
+        public void UpdateIsPayed(string txtID)
+        {
+            using (SqlCommand cmd = new SqlCommand("payroll.[dbo].[sp_PayrollHeader_paid]", sql.SQLConnReturn()))
+            {
+
+                sql.SQLOpen();
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@ID", SqlDbType.Int).Value = txtID;
+                cmd.ExecuteNonQuery();
+
+                sql.SQLClose();
+            }
+        }
+
     }
 }
